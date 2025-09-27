@@ -19,6 +19,7 @@ function LessonPlanForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Form submitted with values:', values);
+        // TODO - submit data to backend
     }
 
     return (
