@@ -2,7 +2,7 @@
 
 ## Resources Used
 * <a href="https://wireframe.cc/">wireframe.cc</a> to create webpage wireframes
-
+* <a href="https://color.adobe.com/">Adobe</a> for color palette generation
 ## Tutorial / Practice Repos
 * React.dev Tic-Tac-Toe tutorial completed (2025.09.22)
       https://github.com/I-DAnders-91/react.dev
