@@ -1,5 +1,9 @@
 # Lesson Planning App - User Stories
 
+The user stories use a User ('As a'), Goal ('I want'), Benefit ('So that') structure making it easier to define the user's requirements. The acceptance explains what a user must do (input) and the output they receive.
+
+__Reference:__ GeeksforGeeks(2025) **How Do You Write a User Story?**. Available at: https://www.geeksforgeeks.org/software-engineering/how-do-you-write-a-user-story/#1-identify-the-user. Accessed: 28th Sept. 2025.
+
 ## Overview
 [MVP Features](#mvp-features)
 - [Create a Lesson](#create-a-lesson)
