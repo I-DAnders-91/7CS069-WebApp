@@ -25,137 +25,137 @@ __Reference:__ GeeksforGeeks(2025) **How Do You Write a User Story?**. Available
 ### Create a Lesson
 __As a__ teacher,
 __I want__ to create a new lesson with core details
-*__So that__ I can plan and organising upcoming lessons
+-__So that__ I can plan and organising upcoming lessons
 
 __Acceptance__
-*__Given__ I'm on "Create New Lesson"
-*__When__ I enter valid lesson objective, subject, year group, date, activities
-  *__Then__ the lesson is saved and I'm redirected to its detail page to view
+- __Given__ I'm on "Create New Lesson"
+- __When__ I enter valid lesson objective, subject, year group, date, activities
+  -__Then__ the lesson is saved and I'm redirected to its detail page to view
 
 ### Validate Lesson Fields
 __As a__ teacher,
 __I want__ clear validation messages
-*__So that__ I can quickly fix input mistakes
+- __So that__ I can quickly fix input mistakes
 
 __Acceptance__
-*__Given__ required fields are empty/invalid
-*__When__ I submit
-  *__Then__ I see inline errors and a 422 error with field messages
+- __Given__ required fields are empty/invalid
+- __When__ I submit
+  - __Then__ I see inline errors and a 422 error with field messages
 
 ### View Lessons
 __As a__ teacher,
 __I want__ a list of my lessons
-*__So that__ I can quickly access or update them
+- __So that__ I can quickly access or update them
 
 __Acceptance__
-*__Given__ lessons exist
-*__When__ I open "My Lessons"
-  *__Then__ I see a list with title, subject, year group, and a link to full details.
+- __Given__ lessons exist
+- __When__ I open "My Lessons"
+  - __Then__ I see a list with title, subject, year group, and a link to full details.
 
 ### Search and Filter Lessons
 __As a__ teacher,
 __I want__ to search lessons
-*__So that__ I can find specific plans fast
+- __So that__ I can find specific plans fast
 
 __Acceptance__
-*__Given__ I'm on "My Lessons"
-*__When__ I search by title/keyword 
-  *__Then__ the list updates to matching items and shows empty state if there are none.
+- __Given__ I'm on "My Lessons"
+- __When__ I search by title/keyword 
+  - __Then__ the list updates to matching items and shows empty state if there are none.
 
 ### View Lesson Details
 __As a__ teacher,
 __I want__ to view all lesson information
-*__So that__ I can review objectives, activities, and attachments when teaching
+- __So that__ I can review objectives, activities, and attachments when teaching
 
 __Acceptance__
-*__Given__ a lesson exists
-*__When__ I open its detail page
-  *__Then__ I see all fields and its attachments
+- __Given__ a lesson exists
+- __When__ I open its detail page
+  - __Then__ I see all fields and its attachments
 
 ### Edit or Delete a Lesson
 __As a__ teacher,
 __I want__ update or delete lesson details
-*__So that__ I can refine or remove plans over time
+- __So that__ I can refine or remove plans over time
 
 __Acceptance__ 
-*__Given__ a lesson exists
-*__When__ I edit fields and save valid changes
-  *__Then__ updates persist and I see a confirmation
+- __Given__ a lesson exists
+- __When__ I edit fields and save valid changes
+  - __Then__ updates persist and I see a confirmation
  
 ### Upload an Attachment
 __As a__ teacher,
 __I want__ to attach lesson files (.ppt, .pdf, .docx, images)
-*__So that__ all resources are accessible from the plan
+- __So that__ all resources are accessible from the plan
 
 __Acceptance__
-*__Given__ I'm on a lesson's detail page
-*__When__ I upload a valid file of an allowed type
-  *__Then__ I see upload progress before the file appears in the attachments list with name, size, and type
+- __Given__ I'm on a lesson's detail page
+- __When__ I upload a valid file of an allowed type
+  - __Then__ I see upload progress before the file appears in the attachments list with name, size, and type
 
 ### Download or Delete and Attachment
 __As a__ teacher,
 __I want__ download or remove files
-*__So that__ I can reuse or clean up resources
+- __So that__ I can reuse or clean up resources
 
 __Acceptance__
-*__Given__ an attachment exists
-*__When__ I click download
-  *__Then__ the file is downloaded through my browser
+- __Given__ an attachment exists
+- __When__ I click download
+  - __Then__ the file is downloaded through my browser
 
-*__When__ I click delete
-  *__Then__ the file and database record are removed and the attachment list is updated
+- __When__ I click delete
+  - __Then__ the file and database record are removed and the attachment list is updated
 
 ### Responsive and Accessible UI
 __As a__ teacher,
 __I want__ to use the app on phone/tablet/desktop and with keyboard
-*__So that__ it fits my workflow
+- __So that__ it fits my workflow
 
 __Acceptance__
-*__Given__ different screen widths
-*__When__ I navigate
-  *__Then__ layout adapts without element overflow
+- __Given__ different screen widths
+- __When__ I navigate
+  - __Then__ layout adapts without element overflow
 
 ## Stretch Features
 
 ### Authentication
 __As a__ teacher,
 __I want__ sign in
-*__So that__ only I can see and edit my lessons
+- __So that__ only I can see and edit my lessons
 
 __Acceptance__
-* register/login/logout endpoints
-* unauthenticated/unauthorised users are redirected
+- register/login/logout endpoints
+- unauthenticated/unauthorised users are redirected
 
 ### Tags and Advanced Search
 __As a__ teacher,
 __I want__ to tag lessons and search by tag
-*__So that__ I can organise a larger library of lessons
+- __So that__ I can organise a larger library of lessons
 
 __Acceptance__
-*__Given__ tags are created
+- __Given__ tags are created
 
-*__When__ creating a lesson
-  *__Then__ custom or existing tags can be added
+- __When__ creating a lesson
+  - __Then__ custom or existing tags can be added
 
-*__When__ searching
-  *__Then__ lessons with the searched tag are displayed
+- __When__ searching
+  - __Then__ lessons with the searched tag are displayed
 
 ### Export Lesson (PDF)
 __As a__ teacher,
 __I want__ to export a lesson
-*__So that__ I can share and print plans
+- __So that__ I can share and print plans
 
 __Acceptance__
-*__Given__ a lesson exists
-*__When__ export is clicked
-  *__Then__ a PDF is generated with key fields and attachment list
+- __Given__ a lesson exists
+- __When__ export is clicked
+  - __Then__ a PDF is generated with key fields and attachment list
 
 ### AI Assisted Lessons
 __As a__ teacher,
 __I want__ to use an AI prompt to generate a lesson
-*__So that__ my workflow is more efficient
+- __So that__ my workflow is more efficient
 
 __Acceptance__
-*__Given__ user is creating a lesson
-*__When__ inputs lesson objective, year group, and subject
-  *__Then__ an AI prompt will create a lesson based on the fields in the form
+- __Given__ user is creating a lesson
+- __When__ inputs lesson objective, year group, and subject
+  - __Then__ an AI prompt will create a lesson based on the fields in the form
