@@ -52,7 +52,9 @@ will be used along with Boostrap to structure the UI. The backend will be built 
 ### Planning
 * Idea chosen
 * initial entity design
-* user stories
+
+#### User Stories
+User stories have been created to outline the requirements from a user.  The user stories use a User ('As a'), Goal ('I want'), Benefit ('So that') structure making it easier to define the user's requirements. The acceptance explains what a user must do (input) and the output they receive. [(GeeksForGeeks, 2025)](#references)
 
 ### Setup
 * Repo created
@@ -64,7 +66,12 @@ will be used along with Boostrap to structure the UI. The backend will be built 
 * Tests
 
 ### Frontend
-* React components
+#### React components
+Each React component has its code stored in a separate file. This is <a href="https://dev.to/algo_sync/how-to-structure-a-react-project-in-2025-clean-scalable-and-practical-15j6">best practice for React developers</a> as it keeps the code more readable and organised. It also allows components to be reused much easier in other projects.
+
+![file structure for Lesson Planning App](image.png)
+This image shows how the file structure is organised. The LessonPlanForm is saved as a separate file and then rendered in the App.jsx file so it appears on the user's browser.
+
 * Forms
 * Routing
 * API integrations
@@ -97,4 +104,5 @@ Baseline -> fixes -> improved results
   * https://github.com/I-DAnders-91/react.dev
 * Lesson plan form (2025.09.27)
   * _Create a Complete Form using React JS | React Forms_ (<a href="https://www.youtube.com/watch?v=H63Pd_lXkeQ">YouTube</a>)
-### Academic and Literary Sources
+### References
+GeeksforGeeks(2025) **How Do You Write a User Story?**. Available at: https://www.geeksforgeeks.org/software-engineering/how-do-you-write-a-user-story/#1-identify-the-user. Accessed: 28th Sept. 
