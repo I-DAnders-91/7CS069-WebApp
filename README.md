@@ -17,7 +17,7 @@
     - [Wrap-up](#wrap-up)
 4. [Resources Used](#4-resources-used)
     - [Tutorials and Practice](#tutorials-and-practice)
-    - [Academic and Literary Sources](#academic-and-literary-sources)
+    - [References](#references)
 
 ## 1 Project Overview
 ### App Overview and Context
@@ -56,13 +56,15 @@ The app will use a mixture of frameworks across the full stack. For the frontend
 User stories were created to outline the application requirements from a user's perspective. They follow a common structure of: 
 - User [__As a'__]
 - Goal [__I want__]
-- Benefit [__So that__] 
+- Benefit [__So that__]
+
 This structure makes it easier to define features of an app in a user-focused way. Each story also include **acceptance criteria**, which describes what a user must do (input) and the expected outcome (output).
 By following the user stories, the requirements of the app are clearly testable and can be mapped directly into implementation steps to improve the efficiency and workflow. 
 *[(GeeksForGeeks, 2025)](#references)*
 
 ##### Example User Story
 ![example of user story](docs/img/user-story-example.png)
+
 ### Setup
 * Repo created
 * Stack scaffolded (React and Laravel)
