@@ -4,6 +4,7 @@
   --accentColor: #646cff;
   --lightColor: #FFFFFF;
   --darkColor: #000000;
+  --textColor: #FFFFFF;
 }
 
 body {
@@ -14,7 +15,7 @@ body {
 h1 {
   font-size: x-large;
   text-align: center;
-  color: #4206A3;
+  color: var(--mainColor);
 }
 
 header {
@@ -29,7 +30,7 @@ header {
 
 nav a{
   margin: 0 2rem;
-  color: var(--lightColor);
+  color: var(--textColor);
   text-decoration: none;
 }
 
@@ -88,7 +89,7 @@ textarea {
 }
 
 .form {
-  background-color: #FFFFFF;
+  background-color: var(--lightColor);
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   padding: 10px 20px;
@@ -111,15 +112,15 @@ button {
   border-radius: 6px;
   margin: 15px;
   border: none;
-  color: #FFFFFF;
+  color: var(--textColor);
   cursor: pointer;
-  background-color: #4206A3;
+  background-color: var(--mainColor);
   width: 40%;
   font-size: 16px;
 }
 
 button:hover {
-  background-color: #2B036C;
+  background-color: var(--secondaryColor);
 }
 
 
@@ -131,10 +132,10 @@ button:hover {
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em var(--accentColor));
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em var(--lightColor));
 }
 
 @keyframes logo-spin {
@@ -187,7 +188,7 @@ button:hover {
   nav a{
     font-size: 1.5rem;
   }
-  
+
 }
 
 .card {
