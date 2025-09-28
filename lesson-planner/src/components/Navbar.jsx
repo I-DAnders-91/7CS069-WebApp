@@ -10,7 +10,7 @@ function Navbar() {
 
     return (
         <header>
-            <h3>Logo</h3>
+            <h3>LearningFoundry</h3>
             <nav ref={navRef}>
                 <a href="/#">Home</a>
                 <a href="/#">About</a>

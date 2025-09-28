@@ -1,4 +1,4 @@
-# Project Scope
+# LearningFoundry - Project Scope
 ## Overview
 This project will deliver a full-stack web applications designed for teachers to 
 __create, manage, and organise lesson plans__. Each plan will allow the user to store 

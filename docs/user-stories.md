@@ -1,4 +1,4 @@
-# Lesson Planning App - User Stories
+# Learning Foundry - Lesson Planning App - User Stories
 
 The user stories use a User ('As a'), Goal ('I want'), Benefit ('So that') structure making it easier to define the user's requirements. The acceptance explains what a user must do (input) and the output they receive.
 

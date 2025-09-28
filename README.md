@@ -1,4 +1,4 @@
-# 7CS069 WebApp
+# LearningFoundry - A Lesson Planning App
 
 ## Contents
 1. [Project Overview](#1-project-overview)
@@ -12,6 +12,7 @@
     - [Frontend](#frontend)
     - [File Handling](#file-handling)
     - [UI and UX Polishing](#ui-and-ux-polishing)
+    - [Branding and Design]()
     - [Testing](#testing)
     - [Performance](#performance)
     - [Wrap-up](#wrap-up)
@@ -32,7 +33,7 @@ Options will be given for teachers to use research-based lesson structures (such
 the <a href="https://d2tic4wvo1iusb.cloudfront.net/eef-guidance-reports/metacognition/Seven_step_model_1.0.pdf">
 EEF 7-step model</a>) to improve the efficiency whilst planning.
 
-The full scope of this app can be found in the [scope document](docs/scope.md).
+The full scope of LearningFoundry can be found in the [scope document](docs/scope.md).
 
 ### Tech Stack
 The app will use a mixture of frameworks across the full stack. For the frontend, React will be used along with Boostrap to structure the UI. The backend will be built using Laravel
@@ -90,6 +91,21 @@ The 'LessonPlanForm' component is defined as a separate component and imported i
 * Laravel storage
 * Validation
 * Upload testing
+
+### Branding and Design Kit
+
+The branding kit keeps the look and feel of the *LessonFoundry* App consistent. It includes a colour palette, typography choices, and UI component guidelines.
+
+#### Logo / App Icon
+![LessonFoundry Logo](docs/img/lessonFoundry-logo.png) 
+![LessonFoundry Logo(inverse)](docs/img/lessonFoundry-logo-inverse.png)
+
+#### Colour Palette
+![LessonFoundry Palette Swatch](docs/img/LessonFoundry_MiniPalette.png)
+
+This branding guides the styling of React components to create an accessible application by maintaining strong colour contrast. 
+
+[__View the full brand board__](docs/BrandBoard-LessonFoundry.pdf)
 
 ### UI and UX polishing
 * Responsiveness
