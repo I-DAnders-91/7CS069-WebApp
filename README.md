@@ -69,7 +69,7 @@ User stories have been created to outline the requirements from a user.  The use
 #### React components
 Each React component has its code stored in a separate file. This is <a href="https://dev.to/algo_sync/how-to-structure-a-react-project-in-2025-clean-scalable-and-practical-15j6">best practice for React developers</a> as it keeps the code more readable and organised. It also allows components to be reused much easier in other projects.
 
-![file structure for Lesson Planning App](image.png)
+![file structure for Lesson Planning App](docs/img/file-structure.png)
 This image shows how the file structure is organised. The LessonPlanForm is saved as a separate file and then rendered in the App.jsx file so it appears on the user's browser.
 
 * Forms
