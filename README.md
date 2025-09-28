@@ -35,8 +35,7 @@ EEF 7-step model</a>) to improve the efficiency whilst planning.
 The full scope of this app can be found in the [scope document](docs/scope.md).
 
 ### Tech Stack
-The app will use a mixture of frameworks across the full stack. For the frontend, React
-will be used along with Boostrap to structure the UI. The backend will be built using Laravel
+The app will use a mixture of frameworks across the full stack. For the frontend, React will be used along with Boostrap to structure the UI. The backend will be built using Laravel
  with MongoDB.
 
 ## 2 Features
@@ -54,8 +53,16 @@ will be used along with Boostrap to structure the UI. The backend will be built 
 * initial entity design
 
 #### User Stories
-User stories have been created to outline the requirements from a user.  The user stories use a User ('As a'), Goal ('I want'), Benefit ('So that') structure making it easier to define the user's requirements. The acceptance explains what a user must do (input) and the output they receive. [(GeeksForGeeks, 2025)](#references)
+User stories were created to outline the application requirements from a user's perspective. They follow a common structure of: 
+- User [__As a'__]
+- Goal [__I want__]
+- Benefit [__So that__] 
+This structure makes it easier to define features of an app in a user-focused way. Each story also include **acceptance criteria**, which describes what a user must do (input) and the expected outcome (output).
+By following the user stories, the requirements of the app are clearly testable and can be mapped directly into implementation steps to improve the efficiency and workflow. 
+*[(GeeksForGeeks, 2025)](#references)*
 
+##### Example User Story
+![example of user story](docs/img/user-story-example.png)
 ### Setup
 * Repo created
 * Stack scaffolded (React and Laravel)
@@ -67,10 +74,11 @@ User stories have been created to outline the requirements from a user.  The use
 
 ### Frontend
 #### React components
-Each React component has its code stored in a separate file. This is <a href="https://dev.to/algo_sync/how-to-structure-a-react-project-in-2025-clean-scalable-and-practical-15j6">best practice for React developers</a> as it keeps the code more readable and organised. It also allows components to be reused much easier in other projects.
+
+The React frontend is organised into components, with each component stored in a separate file. This follows <a href="https://dev.to/algo_sync/how-to-structure-a-react-project-in-2025-clean-scalable-and-practical-15j6">best practice for React developers</a> to improve readability and reusability of the codebase.
 
 ![file structure for Lesson Planning App](docs/img/file-structure.png)
-This image shows how the file structure is organised. The LessonPlanForm is saved as a separate file and then rendered in the App.jsx file so it appears on the user's browser.
+The 'LessonPlanForm' component is defined as a separate component and imported into App.jsx so it can be rendered and displayed to the user.
 
 * Forms
 * Routing
