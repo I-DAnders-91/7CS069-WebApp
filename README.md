@@ -124,6 +124,8 @@ Baseline -> fixes -> improved results
 ## 4 Resources Used
 * <a href="https://wireframe.cc/">wireframe.cc</a> to create webpage wireframes
 * <a href="https://color.adobe.com/">Adobe</a> for color palette generation
+* <a href="https://chatgpt.com/">ChatGPT</a> for logo creation and refinement
+* <a href="https://canva.com/">Canva</a> to create brand kit
 
 ### Tutorials and Practice
 * React.dev Tic-Tac-Toe tutorial completed (2025.09.22)
