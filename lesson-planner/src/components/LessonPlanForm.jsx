@@ -79,18 +79,8 @@ function LessonPlanForm() {
                 </div>
 
                 <div className="col-md-6">
-                    <label htmlFor="lessonLink">Useful Links</label>
-                    <div className="input-group">
-                        <button className="btn btn-outline-secondary" type="button" id="addUrl">Add</button>
-                        <input type="url" className="form-control" placeholder="Copy useful URLs" id="lessonLink" 
-                        onChange={(e) => handleChanges(e)}/>
-                        <ul>
-                        //TODO: Links should appear here when added
-                            <li>Useful URL 1 </li>
-                        </ul>
-                        </div>
-
-                </div>
+                        <UrlList />
+                    </div>
                 <div className="col-md-8">
                     <button type="submit" className="btn btn-primary">Create Lesson</button>
                     </div>
@@ -102,6 +92,40 @@ function LessonPlanForm() {
     )
 }
 
+
+function UrlList() {
+    const [inputValue, setInputValue] = useState(""); // State for user input
+    const [links, setLinks] = useState([]); // State for list of URLs
+
+    const handleAddLink = () => {
+        if (inputValue.trim() !== "") {
+            setLinks([...links, inputValue]); // Adds input value to list
+            setInputValue(""); // Clear input field for new link
+        }
+    };
+
+    return (
+        <div className="input-group">
+            <label htmlFor="lessonLink">Useful Links</label>
+            <input 
+                type="url"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                placeholder="Enter a URL"
+                />
+            <button 
+                className="btn btn-outline-secondary" 
+                type="button" 
+                id="addUrl"
+                onClick={handleAddLink}>Add</button>
+            <ul id="lessonLink">
+                {links.map((links, index) =>(
+                    <li key={index}>{links}</li> // renders user list items
+                ))}
+            </ul>
+        </div>
+    );
+}
 
 function confirmReset() {
   let text = "Are you sure you want to delete this lesson?";
