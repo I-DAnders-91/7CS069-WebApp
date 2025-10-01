@@ -81,50 +81,77 @@ function LessonPlanForm() {
                 <div className="col-md-6">
                         <UrlList />
                     </div>
+                    
                 <div className="col-md-8">
-                    <button type="submit" className="btn btn-primary">Create Lesson</button>
+                    <button type="submit" className="btn btn-primary app-button">Create Lesson</button>
                     </div>
                 <div className="col-md-4">
-                    <button type="button" id="reset-btn" onClick={confirmReset}>Reset</button>
+                    <button type="button" id="reset-btn" className="app-button" onClick={confirmReset}>Reset</button>
                     </div>
             </form>
         </div>
     )
 }
 
-
 function UrlList() {
-    const [inputValue, setInputValue] = useState(""); // State for user input
-    const [links, setLinks] = useState([]); // State for list of URLs
+  const [inputValue, setInputValue] = useState("");
+  const [links, setLinks] = useState([]);
 
-    const handleAddLink = () => {
-        if (inputValue.trim() !== "") {
-            setLinks([...links, inputValue]); // Adds input value to list
-            setInputValue(""); // Clear input field for new link
-        }
-    };
+  const handleAddLink = () => {
+    const trimmed = inputValue.trim();
+    if (!trimmed) return;
+    setLinks((prev) => [...prev, trimmed]);
+    setInputValue("");
+  };
 
-    return (
-        <div className="input-group">
-            <label htmlFor="lessonLink">Useful Links</label>
-            <input 
-                type="url"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Enter a URL"
-                />
-            <button 
-                className="btn btn-outline-secondary" 
-                type="button" 
-                id="addUrl"
-                onClick={handleAddLink}>Add</button>
-            <ul id="lessonLink">
-                {links.map((links, index) =>(
-                    <li key={index}>{links}</li> // renders user list items
-                ))}
-            </ul>
-        </div>
-    );
+  const handleRemoveLink = (index) => {
+    setLinks((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  return (
+    <div>
+      <label htmlFor="lessonLink" className="form-label">
+        Useful Links
+      </label>
+      <div className="input-group mb-3">
+        <input
+          id="lessonLink"
+          type="url"
+          className="form-control"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Enter a URL"
+        />
+        <button
+          className="btn btn-outline-secondary"
+          type="button"
+          onClick={handleAddLink}
+        >
+          Add
+        </button>
+      </div>
+
+      {links.length > 0 && (
+        <ul className="list-group mt-2">
+          {links.map((u, i) => (
+            <li
+              key={`${u}-${i}`}
+              className="list-group-item d-flex justify-content-between align-items-center"
+            >
+              <span>{u}</span>
+              <button
+                type="button"
+                className="btn btn-sm btn-outline-danger"
+                onClick={() => handleRemoveLink(i)}
+              >
+                ✖
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 }
 
 function confirmReset() {

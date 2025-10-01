@@ -142,7 +142,7 @@ textarea {
   background-color: var(--mainLight);
 }
 
-button {
+.form .app-button {
   padding: 10px 15px;
   border-radius: 6px;
   margin: 15px;
@@ -158,7 +158,16 @@ button:hover {
   color: var(--secondaryAccent);
 }
 
-
+/* Remove webkit styling (to fix incorrect height for search and url inputs) */
+input.form-control[type="search"],
+input.form-control[type="url"] {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-top: .375rem;
+  padding-bottom: .375rem;
+  line-height: 1.5;
+  height: calc(1.5em + .75rem + 2px);
+}
 
 .logo {
   height: 6em;
