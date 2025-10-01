@@ -24,7 +24,7 @@ function LessonPlanForm() {
 
     return (
         <div className="form">
-            <h1>Create a New Lesson...</h1>
+            <h1 id="page-title">Create a New Lesson...</h1>
             <form onSubmit={handleSubmit} className="row g-3" id="lessonPlanForm">
 
                 <div className="col-md-8">
