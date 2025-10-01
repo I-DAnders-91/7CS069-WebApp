@@ -25,7 +25,7 @@ function LessonPlanForm() {
     return (
         <div className="form">
             <h1>Create a New Lesson...</h1>
-            <form onSubmit={handleSubmit} className="row g-3">
+            <form onSubmit={handleSubmit} className="row g-3" id="lessonPlanForm">
 
                 <div className="col-md-8">
                     <label htmlFor="lessonObjective" className="form-label" required>Lesson Objective</label>
@@ -95,11 +95,21 @@ function LessonPlanForm() {
                     <button type="submit" className="btn btn-primary">Create Lesson</button>
                     </div>
                 <div className="col-md-4">
-                    <button type="button" id="delete-btn">Delete</button>
+                    <button type="button" id="reset-btn" onClick={confirmReset}>Reset</button>
                     </div>
             </form>
         </div>
     )
+}
+
+
+function confirmReset() {
+  let text = "Are you sure you want to delete this lesson?";
+  if (confirm(text) == true) {
+    document.getElementById('lessonPlanForm').reset();
+  } else {
+    text = "Not reset";
+  }
 }
 
 export default LessonPlanForm;
