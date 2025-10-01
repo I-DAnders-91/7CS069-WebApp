@@ -81,9 +81,9 @@ function LessonPlanForm() {
                 <div className="col-md-6">
                         <UrlList />
                     </div>
-                    
+
                 <div className="col-md-8">
-                    <button type="submit" className="btn btn-primary app-button">Create Lesson</button>
+                    <button type="submit" id="create-btn" className="btn btn-primary app-button">Create Lesson</button>
                     </div>
                 <div className="col-md-4">
                     <button type="button" id="reset-btn" className="app-button" onClick={confirmReset}>Reset</button>

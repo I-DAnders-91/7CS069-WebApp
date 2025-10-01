@@ -158,6 +158,27 @@ button:hover {
   color: var(--secondaryAccent);
 }
 
+#create-btn {
+  background-color: transparent;
+  color: green;
+  border: 1px solid green;
+}
+
+#create-btn:hover {
+  background-color: var(--secondaryAccent);
+  color: var(--mainLight);
+}
+
+#reset-btn {
+  background-color: var(--mainGrey);
+  color: var(--mainLight);
+  border: 1px solid red;
+}
+
+#reset-btn:hover {
+  background-color: red;
+}
+
 /* Remove webkit styling (to fix incorrect height for search and url inputs) */
 input.form-control[type="search"],
 input.form-control[type="url"] {
