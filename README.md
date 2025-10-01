@@ -132,5 +132,9 @@ Baseline -> fixes -> improved results
   * https://github.com/I-DAnders-91/react.dev
 * Lesson plan form (2025.09.27)
   * _Create a Complete Form using React JS | React Forms_ (<a href="https://www.youtube.com/watch?v=H63Pd_lXkeQ">YouTube</a>)
+* Bootstrap (2025.10.01)
+  * Various <a href="https://www.w3schools.com/bootstrap5/index.php">W3Schools</a> tutorials used to style website with Bootstrap
+  * <a href="https://getbootstrap.com/docs/5.3/">Bootstrap documentation</a> used as a reference for correct syntax and feature lookup
+    
 ### References
 GeeksforGeeks(2025) **How Do You Write a User Story?**. Available at: https://www.geeksforgeeks.org/software-engineering/how-do-you-write-a-user-story/#1-identify-the-user. Accessed: 28th Sept. 
