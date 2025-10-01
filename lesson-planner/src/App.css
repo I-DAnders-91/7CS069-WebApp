@@ -1,3 +1,4 @@
+
 :root {
   --mainOrange: #F26419;
   --mainGrey: #2E2E2E;
@@ -19,25 +20,6 @@ h1 {
   color: var(--mainGrey);
 }
 
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 80px;
-  padding: 0 2rem;
-  background-color: var(--mainGrey);
-  color: var(--mainLight);
-}
-
-nav a{
-  margin: 0 2rem;
-  color: var(--textColor);
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: var(--secondaryAccent);
-}
 
 header .nav-button {
   padding: 5px;
@@ -49,6 +31,56 @@ header .nav-button {
   visibility: hidden;   
   opacity: 0;
   font-size: 1.8rem;
+}
+
+.navbar-logo {
+  height: 80%;
+  width: auto;
+  max-height: 48px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.brand-navbar {
+  background-color: var(--mainGrey) !important;
+}
+
+.brand-navbar .navbar-brand,
+.brand-navbar .nav-link,
+.brand-navbar .navbar-toggler {
+  color: var(--mainLight) !important; /* Change text color to light */
+}
+
+.brand-navbar .nav-link.active {
+  color: var(--mainOrange) !important;
+}
+
+/* Orange border on hover/focus */
+.brand-navbar .nav-link:hover,
+.brand-navbar .nav-link:focus {
+  color: var(--secondaryAccent) !important;
+  background-color: transparent !important;
+  border-color: var(--mainOrange) !important;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+.custom-toggler .navbar-toggler:hover,
+.custom-toggler .navbar-toggler:focus {
+  border-color: var(--mainOrange) !important;
+}
+
+.custom-toggler.navbar-toggler:hover,
+.custom-toggler.navbar-toggler:active{
+  border-color: var(--mainOrange) !important;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'><path stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>");
 }
 
 label {
@@ -156,48 +188,6 @@ button:hover {
   }
 }
 
-@media only screen and (max-width: 1024px){
-  header .nav-button {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  header nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    background-color: var(--mainGrey);
-    transition: 1s;
-    transform: translateY(-100vh);
-  }
-
-  header .responsive_nav {
-    transform: none;
-  }
-
-  nav .nav-close-button {
-    position: absoulte;
-    top: 2rem;
-    right: 2rem;
-  }
-
-  nav .nav-close-button:hover {
-    color: var(--secondaryAccent);
-    background-color: transparent;
-  }
-
-  nav a{
-    font-size: 1.5rem;
-  }
-
-}
 
 .card {
   padding: 2em;
