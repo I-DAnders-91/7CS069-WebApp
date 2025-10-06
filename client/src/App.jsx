@@ -1,6 +1,7 @@
 //Component imports
 import LessonPlanForm from './components/LessonPlanForm';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 // Style imports
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';

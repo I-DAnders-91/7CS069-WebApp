@@ -1,21 +1,8 @@
 function Footer() {
 
     return (
-    <footer className="footer p-5">
+    <footer className="footer p-5 brand-footer">
     <div className="container">
-            <div className="row">
-                <div className="col-md-3">
-                    <h2>LearningFoundry</h2>
-                </div>
-                <div className="col-md-3">
-                    <h5>About Us</h5>
-                    <p>
-                        LearningFoundry is a lesson planning app that provides educators 
-                        with a central place for organising and managing their lesson plans.
-                    </p>
-                </div>
-               
-            </div>
             <hr />
             <div className="row">
                 <div className="col-md-6">
