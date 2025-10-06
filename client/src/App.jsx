@@ -13,7 +13,7 @@ function App() {
         <div className="App">
             <Navbar />
             <LessonPlanForm />
-            {/*TODO - Add Footer component*/}
+            <Footer />
         </div>
     );
 }
