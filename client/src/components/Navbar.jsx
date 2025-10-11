@@ -23,20 +23,17 @@ function Navbar() {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/About">About</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/MyLessons">My Lessons</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Create a Lesson</a>
-                            </li>
-                        </ul>
+                        <div className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <NavLink className="nav-item nav-link" to="/" end>
+                                Home
+                            </NavLink>
+                            <NavLink className="nav-item nav-link" to="/about" end>
+                            About
+                            </NavLink>
+                            <NavLink className="nav-item nav-link" to="/my-lessons" end>
+                            My Lessons
+                            </NavLink>
+                        </div>
                         <form className="d-flex">
                                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                                 <button className="btn btn-outline-success search-btn" type="submit">Search</button>

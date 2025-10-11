@@ -1,7 +1,11 @@
-import { createRoot } from 'react-dom/client'
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router';
-import App from './App'
-import About from './components/About'
+
+// Page view imports
+import App from './App';
+import About from './components/About';
+import MyLessons from './components/MyLessons';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 
 
@@ -11,8 +15,9 @@ createRoot(document.getElementById('root')).render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="about" element={<About />} />
-      <Route path="mylessons" element={<MyLessons />} />
+      <Route path="my-lessons" element={<MyLessons />} />
 
+      <Route path="privacy-policy" element={<PrivacyPolicy />} />
     </Routes>
   </BrowserRouter>,
 );

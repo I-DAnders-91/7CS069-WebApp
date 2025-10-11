@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router';
+
 function Footer() {
 
     return (
@@ -9,16 +11,14 @@ function Footer() {
                     <p>&copy; 2025 LearningFoundry. All rights reserved.</p>
                 </div>
                 <div className="col-md-6 text-end">
-                    <ul className="list-inline footer-links">
-                        <li className="list-inline-item">
-                            <a href="#" className="text-white">
-                                Privacy Policy
-                            </a>
-                        </li>
-                    </ul>
+                    <div className="list-inline footer-links">
+                        <NavLink className="list-inline-item text-white" to="privacy-policy" end>
+                                    Privacy Policy
+                        </NavLink>
+                    </div>
                 </div>
             </div>
-        </div>
+     </div>
     </footer>
     );
 }
