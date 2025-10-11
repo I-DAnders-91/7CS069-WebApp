@@ -7,9 +7,8 @@
 2. [Features](#2-features)
 3. [Development Process](#3-development-process)
     - [Planning](#planning)
-    - [Setup](#setup)
-    - [Backend](#backend)
     - [Frontend](#frontend)
+    - [Backend](#backend)
     - [File Handling](#file-handling)
     - [UI and UX Polishing](#ui-and-ux-polishing)
     - [Branding and Design]()
@@ -99,7 +98,7 @@ The navbar was updated with <NavLink> to change the url when clicked. React Rout
 
 Main.jsx was updated to wrap the App function in a <BrowserRouter> tag:
 
-'''jsx
+```jsx
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
@@ -111,10 +110,10 @@ createRoot(document.getElementById('root')).render(
     </Routes>
   </BrowserRouter>,
 );
-'''
+```
 
 NavLinks were then used to change the URL when clicking on the link:
-''' jsx
+```jsx
 <NavLink className="nav-item nav-link" to="/" end>
   Home
 </NavLink>
@@ -124,11 +123,15 @@ NavLinks were then used to change the URL when clicking on the link:
 <NavLink className="nav-item nav-link" to="/my-lessons" end>
   My Lessons
 </NavLink>
-'''
+```
 
 ##### API integrations
 
 ### Backend
+#### CRUD Endpoints Identified
+CRUD endpoints were identified before coding them into the app. This was done using a simple, but informative structure to capture all of the details needed (below)
+![CRUD Endpoint Identification structure](docs/img/CRUDendpointIdentification.jpeg)
+
 * CRUD endpoints built
 * Database migrations
 * Tests
