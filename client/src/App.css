@@ -33,6 +33,14 @@ header .nav-button {
   font-size: 1.8rem;
 }
 
+.brand-footer {
+  background-color: var(--mainGrey) !important;
+  color: var(--mainLight);
+  margin-top: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
 .navbar-logo {
   height: 80%;
   width: auto;
@@ -43,6 +51,7 @@ header .nav-button {
 
 .brand-navbar {
   background-color: var(--mainGrey) !important;
+  border-radius: 15px;
 }
 
 .brand-navbar .navbar-brand,
