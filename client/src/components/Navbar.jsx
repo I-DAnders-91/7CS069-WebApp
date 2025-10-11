@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { NavLink } from 'react-router';
 
 function Navbar() {
     const navRef = useRef();
@@ -27,10 +28,10 @@ function Navbar() {
                                 <a className="nav-link active" aria-current="page" href="#">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">About</a>
+                                <a className="nav-link" href="/About">About</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">My Lessons</a>
+                                <a className="nav-link" href="/MyLessons">My Lessons</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">Create a Lesson</a>
