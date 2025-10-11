@@ -12,7 +12,7 @@
     - [Frontend](#frontend)
     - [File Handling](#file-handling)
     - [UI and UX Polishing](#ui-and-ux-polishing)
-    - [Branding and Design]()
+    - [Branding and Design](#branding-and-design-kit)
     - [Testing](#testing)
     - [Performance](#performance)
     - [Wrap-up](#wrap-up)
