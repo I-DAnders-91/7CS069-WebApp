@@ -40,7 +40,7 @@ export default function LessonDetail() {
                 <Link to="/my-lessons" className ="btn btn-sm btn-outline-secondary mb-3">Back</Link>
                 <h2>{lesson.objective}</h2>
                 <p className="text-muted mb-3">
-                    Subject: {lesson.subject} | Year Group: {lesson.year_group} | Date: {lesson.date}
+                    Subject: {lesson.subject} | Year Group: {lesson.year_group} | Date: {lesson.date ? new Date(lesson.date).toISOString().slice(0, 10) : ''}
                 </p>
 
                 {lesson.activities && (

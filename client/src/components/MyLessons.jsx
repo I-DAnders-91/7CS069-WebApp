@@ -27,6 +27,21 @@ export default function MyLessons() {
         fetchLessons();
     }, []);
 
+    const handleDelete = async (id) => {
+        if (!confirm("Are you sure you want to delete this lesson?")) return;
+        try {
+            const res = await fetch(`/api/lessons/${id}`, { method: 'DELETE' });
+            if (res.status === 204) {
+                setLessons((prev) => prev.filter((lesson) => lesson.id !== id));
+            } else {
+                alert("Failed to delete lesson.");
+            }
+        } catch (error) {
+            alert("Error deleting lesson.");
+            console.error(error);
+        }
+    };
+
     if (loading) return <div><p>Loading...</p></div>;
     if (error) return <p className="text-danger">{error}</p>;
     if (!lessons.length) return <p>No lessons found.</p>;
@@ -42,10 +57,16 @@ export default function MyLessons() {
                         <strong>{lesson.objective}</strong>
                         <br />
                         <small>
-                            Subject: {lesson.subject} | Date: {lesson.date} | Year Group: {lesson.year_group}
+                            Subject: {lesson.subject} | Date: {lesson.date ? new Date(lesson.date).toISOString().slice(0, 10) : ''} | Year Group: {lesson.year_group}
                             </small>
                     </div>
                     <Link className="btn btn-sm btn-outline-primary" to={`/lessons/${lesson.id}`}>View</Link>
+                    <button
+                        className="btn btn-sm btn-outline-danger"
+                        onClick={() => handleDelete(lesson.id)}
+                    >
+                        Delete
+                    </button>
                 </li>
             ))}
         </ul>
