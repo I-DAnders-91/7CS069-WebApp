@@ -7,9 +7,8 @@
 2. [Features](#2-features)
 3. [Development Process](#3-development-process)
     - [Planning](#planning)
-    - [Setup](#setup)
-    - [Backend](#backend)
     - [Frontend](#frontend)
+    - [Backend](#backend)
     - [File Handling](#file-handling)
     - [UI and UX Polishing](#ui-and-ux-polishing)
     - [Branding and Design](#branding-and-design-kit)
@@ -93,11 +92,46 @@ Lessons are created and submitted using the <form> html tags to create the struc
 ##### Routing
 To submit the forms, ...
 
-To redirect to other pages, ...
+To redirect to other pages, React Router was used. I chose to use their __declarative__ mode matching URLs to components. The React Router (2025) website gave a good guide on how to implement this routing strategy. 
+
+The navbar was updated with <NavLink> to change the url when clicked. React Router then loaded the appropriate components based on the URL. 
+
+Main.jsx was updated to wrap the App function in a <BrowserRouter> tag:
+
+```jsx
+createRoot(document.getElementById('root')).render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="about" element={<About />} />
+      <Route path="my-lessons" element={<MyLessons />} />
+
+      <Route path="privacy-policy" element={<PrivacyPolicy />} />
+    </Routes>
+  </BrowserRouter>,
+);
+```
+
+NavLinks were then used to change the URL when clicking on the link:
+```jsx
+<NavLink className="nav-item nav-link" to="/" end>
+  Home
+</NavLink>
+<NavLink className="nav-item nav-link" to="/about" end>
+  About
+</NavLink>
+<NavLink className="nav-item nav-link" to="/my-lessons" end>
+  My Lessons
+</NavLink>
+```
 
 ##### API integrations
 
 ### Backend
+#### CRUD Endpoints Identified
+CRUD endpoints were identified before coding them into the app. This was done using a simple, but informative structure to capture all of the details needed (below)
+![CRUD Endpoint Identification structure](docs/img/CRUDendpointIdentification.jpeg)
+
 * CRUD endpoints built
 * Database migrations
 * Tests
@@ -161,5 +195,8 @@ Baseline -> fixes -> improved results
   * <a href="https://getbootstrap.com/docs/5.3/">Bootstrap documentation</a> used as a reference for correct syntax and feature lookup
     
 ### References
-GeeksforGeeks(2025) **How Do You Write a User Story?**. Available at: https://www.geeksforgeeks.org/software-engineering/how-do-you-write-a-user-story/#1-identify-the-user. Accessed: 28th Sept.
-Pitt, C. (2021) **Pro PHP 8 MVC: model view controller architecture-driven application development**. Apress
+GeeksforGeeks(2025) **How Do You Write a User Story?**. Available at: https://www.geeksforgeeks.org/software-engineering/how-do-you-write-a-user-story/#1-identify-the-user. Accessed: 28 Sept 2025.
+
+Pitt, C. (2021) **Pro PHP 8 MVC: model view controller architecture-driven application development**. Apress.
+
+React Router (2025) **React Router Home**. Available at: https://reactrouter.com/home. Accessed: 11 Oct 2025.
