@@ -141,7 +141,7 @@ export default function LessonPlanForm() {
           {err("subject") && <div className="text-danger small">{err("subject")}</div>}
         </div>
 
-        <div className="col-md-4">
+        <div className="col-md-6">
           <label htmlFor="year_group" className="form-label">Year Group</label>
           <select
             id="year_group"
@@ -164,7 +164,7 @@ export default function LessonPlanForm() {
           {err("year_group") && <div className="text-danger small">{err("year_group")}</div>}
         </div>
 
-        <div className="col-md-4">
+        <div className="col-md-6">
           <label htmlFor="date" className="form-label">Date</label>
           <input
             type="date"
@@ -226,9 +226,6 @@ export default function LessonPlanForm() {
             className="form-control"
             onChange={handleFile}
           />
-          <div className="form-text">
-            Files will be uploaded to a separate endpoint after saving the lesson.
-          </div>
         </div>
 
         <div className="col-md-6">
