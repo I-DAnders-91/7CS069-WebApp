@@ -192,6 +192,10 @@ Baseline -> fixes -> improved results
 * Bootstrap (2025.10.01)
   * Various <a href="https://www.w3schools.com/bootstrap5/index.php">W3Schools</a> tutorials used to style website with Bootstrap
   * <a href="https://getbootstrap.com/docs/5.3/">Bootstrap documentation</a> used as a reference for correct syntax and feature lookup
+* Laravel/PHP (2025.10.08 - 2025.10.12)
+  * [Code For You - React/Laravel API tutorial](https://www.youtube.com/watch?v=kUl6s-9vLN0&list=PLilopcxfR1tXp6qEKc-jF9AVyszrDX3Yv)
+  * [Laravel documentation](https://laravel.com/docs/12.x/)
+  * [Creating a React.js + Laravel API CRUD: A Simple Guide (Medium.com)](https://medium.com/@laravelprotips/creating-a-react-js-laravel-api-crud-a-simple-guide-02702f93d26f)
     
 ### References
 GeeksforGeeks(2025) **How Do You Write a User Story?**. Available at: https://www.geeksforgeeks.org/software-engineering/how-do-you-write-a-user-story/#1-identify-the-user. Accessed: 28 Sept 2025.
