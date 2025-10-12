@@ -67,14 +67,13 @@ export default function LessonPlanForm() {
         useful_links: (values.useful_links || []).filter((u) => u.trim() !== ""),
       };
 
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/lessons`, {
+      const res = await fetch("/api/lessons", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
       if (res.status === 201) {
-        // const data = await res.json();
         alert("Lesson saved!");
         resetForm();
         // TODO: upload attachments to /lessons/{id}/attachments

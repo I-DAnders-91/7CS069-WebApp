@@ -35,8 +35,7 @@ EEF 7-step model</a>) to improve the efficiency whilst planning.
 The full scope of **LearningFoundry** can be found in the [scope document](docs/scope.md).
 
 ### Tech Stack
-The app will use a mixture of frameworks across the full stack. For the frontend, React will be used along with Boostrap to structure the UI. The backend will be built using Laravel
- with MongoDB.
+The app will use a mixture of frameworks across the full stack. For the frontend, React will be used along with Boostrap to structure the UI. The backend will be built using Laravel API and data will be stored in a JSON file.
 
 ## 2 Features
 * Lesson CRUD (Create, Read, Update, Delete)
@@ -54,7 +53,7 @@ The initial idea of a teaching planning app was decided on so it links to my day
 In addition to linking to my own experience, developing an app linked to education would also give me access to plenty of people that could test the app for usability.
 
 #### App name (LearningFoundry)
-To develop the app name, I created a mind map of common words that might be associated with this app **teach, create, plan, learn**. I then came up with synonyms for thes, with a goal of choosing two that could be used for the app name.
+To develop the app name, I created a mind map of common words that might be associated with this app **teach, create, plan, learn**. I then came up with synonyms for these with a goal of choosing two that could be used for the app name.
 ![app name mind map](#)
 
 The name *LearningFoundry* was decided upon as it invokes a powerful learning app with the use of foundry in the name and [logo](#branding-and-design-kit). Limited time was spent on the name choice as it is not the prime aim of this assignment.
