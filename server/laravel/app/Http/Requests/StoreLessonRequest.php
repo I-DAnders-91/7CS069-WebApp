@@ -11,7 +11,8 @@ class StoreLessonRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        //TODO: Implement authorisation logic
+        return true;
     }
 
     /**
