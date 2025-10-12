@@ -1,5 +1,7 @@
+
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { Link } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
 
@@ -36,11 +38,14 @@ export default function MyLessons() {
         <ul className="list-group mt-3">
             {lessons.map((lesson) => (
                 <li key={lesson.id} className="list-group-item">
-                    <strong>{lesson.objective}</strong>
-                    <br />
-                    <small>
-                        Subject: {lesson.subject} | Date: {lesson.date} | Year Group: {lesson.year_group}
-                        </small>
+                    <div>
+                        <strong>{lesson.objective}</strong>
+                        <br />
+                        <small>
+                            Subject: {lesson.subject} | Date: {lesson.date} | Year Group: {lesson.year_group}
+                            </small>
+                    </div>
+                    <Link className="btn btn-sm btn-outline-primary" to={`/lessons/${lesson.id}`}>View</Link>
                 </li>
             ))}
         </ul>

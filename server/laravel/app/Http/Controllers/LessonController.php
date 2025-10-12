@@ -29,4 +29,11 @@ class LessonController extends Controller
 
         return response()->json($lesson, 201);
     }
+    public function show($id) {
+        $lesson = \App\Models\Lesson::find($id);
+        if (!$lesson) {
+            return response()->json(['error' => 'Lesson not found'], 404);
+        }
+        return response()->json($lesson);
+    }
 }
