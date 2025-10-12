@@ -18,6 +18,13 @@
 4. [Resources Used](#4-resources-used)
     - [Tutorials and Practice](#tutorials-and-practice)
     - [References](#references)
+### Installation Instructions
+<details>
+<summary>Click to view installation instructions</summary>
+
+Coming soon...
+
+</details>
 
 ## 1 Project Overview
 ### App Overview and Context
@@ -54,7 +61,7 @@ In addition to linking to my own experience, developing an app linked to educati
 
 #### App name (LearningFoundry)
 To develop the app name, I created a mind map of common words that might be associated with this app **teach, create, plan, learn**. I then came up with synonyms for these with a goal of choosing two that could be used for the app name.
-![app name mind map](#)
+![app name mind map](docs/img/app_name_mind_map.jpeg)
 
 The name *LearningFoundry* was decided upon as it invokes a powerful learning app with the use of foundry in the name and [logo](#branding-and-design-kit). Limited time was spent on the name choice as it is not the prime aim of this assignment.
 
@@ -86,7 +93,7 @@ The React frontend is organised into components, with each component stored in a
 The 'LessonPlanForm' component is defined as a separate component and imported into App.jsx so it can be rendered and displayed to the user.
 
 #### Forms
-Lessons are created and submitted using the <form> html tags to create the structure. They have then been styled with Bootstrap so they are responsive on different screen sizes.
+Lessons are created and submitted using the ```<form>``` html tags to create the structure. They have then been styled with Bootstrap so they are responsive on different screen sizes.
 
 ##### Routing
 To submit the forms, ...
@@ -145,8 +152,8 @@ CRUD endpoints were identified before coding them into the app. This was done us
 The branding kit keeps the look and feel of the *LessonFoundry* App consistent. It includes a colour palette, typography choices, and UI component guidelines.
 
 #### Logo / App Icon
-![LessonFoundry Logo](docs/img/lessonFoundry-logo.png) 
-![LessonFoundry Logo(inverse)](docs/img/lessonFoundry-logo-inverse.png)
+![LessonFoundry Logo](client/public/img/lessonFoundry-logo.png) 
+![LessonFoundry Logo(inverse)](client/public/img/lessonFoundry-logo-inverse.png)
 
 #### Colour Palette
 ![LessonFoundry Palette Swatch](docs/img/LessonFoundry_MiniPalette.png)
@@ -198,8 +205,10 @@ Baseline -> fixes -> improved results
   * [Creating a React.js + Laravel API CRUD: A Simple Guide (Medium.com)](https://medium.com/@laravelprotips/creating-a-react-js-laravel-api-crud-a-simple-guide-02702f93d26f)
     
 ### References
-GeeksforGeeks(2025) **How Do You Write a User Story?**. Available at: https://www.geeksforgeeks.org/software-engineering/how-do-you-write-a-user-story/#1-identify-the-user. Accessed: 28 Sept 2025.
+GeeksforGeeks(2025) __How Do You Write a User Story?__. Available at: https://www.geeksforgeeks.org/software-engineering/how-do-you-write-a-user-story/#1-identify-the-user. Accessed: 28 Sept 2025.
 
-Pitt, C. (2021) **Pro PHP 8 MVC: model view controller architecture-driven application development**. Apress.
+Pitt, C. (2021) __Pro PHP 8 MVC: model view controller architecture-driven application development__. Apress.
 
-React Router (2025) **React Router Home**. Available at: https://reactrouter.com/home. Accessed: 11 Oct 2025.
+React Router (2025) __React Router Home__. Available at: https://reactrouter.com/home. Accessed: 11 Oct 2025.
+
+Sinha, S. (2019) __Beginning Laravel : Build Websites with Laravel 5.8.__ 2nd ed. 2019. Berkeley, CA: Apress. [Online]. Available at: https://learning.oreilly.com/. Accessed: 9 Oct 2025.
