@@ -8,6 +8,10 @@ use App\Http\Requests\StoreLessonRequest;
 
 class LessonController extends Controller
 {
+    public function index() {
+        $lessons = \App\Models\Lesson::all();
+        return response()->json($lessons);
+    }
     public function store(StoreLessonRequest $request) {
         $data = $request->validated();
         // Store the lesson in the database
