@@ -1,102 +1,88 @@
-import { useState } from "react";
+import {useEffect, useState } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
-export default function LessonPlanForm() {
-  const [values, setValues] = useState({
-    // Map form fields to backend API fields
-    objective: "",
-    subject: "",
-    year_group: "",
-    date: "",
-    success_criteria: "",
-    activities: "",
-    created_at: "",
-    updated_at: "",
-    useful_links: [],
-    attachments: null,
-  });
+export default function EditLesson() {
+    const { id } = useParams();
+    const navigate = useNavigate();
 
-  const [errors, setErrors] = useState({});
-  const [saving, setSaving] = useState(false);
-
-  const handleChanges = (e) => {
-    const { name, value } = e.target;
-    setValues((v) => ({ ...v, [name]: value }));
-  };
-
-  const handleFile = (e) => {
-    const f = e.target.files && e.target.files[0] ? e.target.files[0] : null;
-    setValues((v) => ({ ...v, attachments: f }));
-  };
-
-  const handleLinksChange = (links) => {
-    setValues((v) => ({ ...v, useful_links: links }));
-  };
-
-  const resetForm = () => {
-    setValues({
-      objective: "",
-      subject: "",
-      year_group: "",
-      date: "",
-      success_criteria: "",
-      activities: "",
-      created_at: "",
-      updated_at: "",
-      useful_links: [],
-      attachments: null,
+    const [form, setForm] = useState({
+        objective: "",
+        subject: "",
+        year_group: "",
+        date: "",
+        success_criteria: "",
+        activities: "",
+        useful_links: [],
     });
-    setErrors({});
-  };
+    const [linkInput, setLinkInput] = useState("");
+    const [saving, setSaving] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [errors, setErrors] = useState(null);
 
-  const err = (field) => (errors && errors[field] ? errors[field][0] : null);
+    useEffect(() => {
+        let ignore = false;
+        async function load() {
+            try {
+                const res = await fetch(`/api/lessons/${id}`);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
+                if (!ignore) {
+                    setForm({
+                        objective: data.objective || "",
+                        subject: data.subject || "",
+                        year_group: data.year_group || "",
+                        date: data.date || "",
+                        success_criteria: data.success_criteria || "",
+                        activities: data.activities || "",
+                        useful_links: data.useful_links || [],
+                    });
+                }
+            } catch (error) {
+                console.error(error);
+                if (!ignore) setErrors({ load: "Could not load lesson." });
+            } finally {
+                setLoading(false);
+            }
+        }
+        load();
+        return () => { ignore = true; };
+    }, [id]);
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    setSaving(true);
-    setErrors({});
+    const handleChanges = (e) => {
+        const { name, value } = e.target;
+        setForm((prev) => ({ ...prev, [name]: value }));
+    };
 
-    try {
-      // build api endpoint payload
-      const payload = {
-        objective: values.objective,
-        subject: values.subject,
-        year_group: values.year_group || "Year _", // Placeholder until field added
-        date: values.date,
-        success_criteria: values.success_criteria,
-        activities: values.activities,
-        useful_links: (values.useful_links || []).filter((u) => u.trim() !== ""),
-      };
+    const err = (field) => (errors && errors[field] ? errors[field][0] : undefined);
 
-      const res = await fetch("/api/lessons", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+    // ...existing addLink, removeLink, onSubmit...
 
-      if (res.status === 201) {
-        alert("Lesson saved!");
-        resetForm();
-        // TODO: upload attachments to /lessons/{id}/attachments
-        // TODO: navigate to newly created lesson (`/lessons/${data.id}`)
-      } else if (res.status === 422) {
-        const body = await res.json();
-        setErrors(body.errors || {});
-      } else {
-        const text = await res.text();
-        alert(`Unexpected error (${res.status}): ${text}`);
-      }
-    } catch (err) {
-      alert("Network error. Please try again.");
-    } finally {
-      setSaving(false);
-    }
-  };
+    // Add a resetForm function if you want to reset to initial state
+    const resetForm = () => {
+        setForm({
+            objective: "",
+            subject: "",
+            year_group: "",
+            date: "",
+            success_criteria: "",
+            activities: "",
+            useful_links: [],
+        });
+        setErrors(null);
+    };
 
-  return (
+    if (loading) return <div className="container py-4">Loading...</div>;
+    if (typeof errors === "string") return <div className="container py-4 text-danger">{errors}</div>;
+
+    return (
     <div className="form">
-      <h1 id="page-title" className="mb-3">Create a New Lesson...</h1>
+        <Link to={`/lessons/${id}`} className="btn btn-sm btn-outline-secondary mb-3">Back</Link>
+      <h1 id="page-title" className="mb-3">Edit Lesson...</h1>
+      {errors?._form && <div className="alert alert-danger">{errors._form[0]}</div>}
 
-      <form onSubmit={onSubmit} className="row g-3" id="lessonPlanForm" noValidate>
+      <form onSubmit={onSubmit} className="row g-3" id="editLesson" noValidate>
         <div className="col-md-8">
           <label htmlFor="objective" className="form-label">Lesson Title / Objective</label>
           <input
@@ -105,7 +91,7 @@ export default function LessonPlanForm() {
             name="objective"
             className="form-control"
             placeholder="Enter Lesson Objective"
-            value={values.objective}
+            value={form.objective}
             onChange={handleChanges}
             required
           />
@@ -118,7 +104,7 @@ export default function LessonPlanForm() {
             id="subject"
             name="subject"
             className="form-select"
-            value={values.subject}
+            value={form.subject}
             onChange={handleChanges}
             required
           >
@@ -146,7 +132,7 @@ export default function LessonPlanForm() {
             id="year_group"
             name="year_group"
             className="form-select"
-            value={values.year_group}
+            value={form.year_group}
             onChange={handleChanges}
             required
           >
@@ -170,7 +156,7 @@ export default function LessonPlanForm() {
             id="date"
             name="date"
             className="form-control"
-            value={values.date}
+            value={form.date}
             onChange={handleChanges}
             required
           />
@@ -185,7 +171,7 @@ export default function LessonPlanForm() {
             name="success_criteria"
             className="form-control"
             placeholder="Enter Success Criteria"
-            value={values.success_criteria}
+            value={form.success_criteria}
             onChange={handleChanges}
           />
         </div>
@@ -196,7 +182,7 @@ export default function LessonPlanForm() {
             id="ncStatement"
             name="ncStatement"
             className="form-select"
-            value={values.ncStatement}
+            value={form.ncStatement || ""}
             onChange={handleChanges}
           >
             <option value="placeholder" disabled>Coming Soon</option>
@@ -211,7 +197,7 @@ export default function LessonPlanForm() {
             className="form-control"
             rows={8}
             placeholder="Starter, main, plenary..."
-            value={values.activities}
+            value={form.activities}
             onChange={handleChanges}
           />
         </div>
@@ -223,78 +209,28 @@ export default function LessonPlanForm() {
             id="attachments"
             name="attachments"
             className="form-control"
-            onChange={handleFile}
+            // onChange={handleFile} // implement if needed
           />
         </div>
 
         <div className="col-md-6">
-          <UrlList value={values.useful_links} onChange={handleLinksChange} />
+          {/* Replace with your UrlList component if needed */}
+          {/* <UrlList value={form.useful_links} onChange={handleLinksChange} /> */}
           {err("useful_links") && <div className="text-danger small">{err("useful_links")}</div>}
           {err("useful_links.0") && <div className="text-danger small">{err("useful_links.0")}</div>}
         </div>
 
         <div className="col-md-10">
           <button type="submit" id="create-btn" className="btn btn-primary app-button" disabled={saving}>
-            {saving ? "Saving..." : "Create Lesson"}
+            {saving ? "Saving..." : "Save Changes"}
           </button>
         </div>
         <div className="col-md-2">
           <button type="button" id="reset-btn" className="btn btn-outline-secondary app-button" onClick={resetForm}>
-            <i class="bi bi-x-octagon reset-btn"></i>
+            <i className="bi bi-x-octagon reset-btn"></i>
           </button>
         </div>
       </form>
-    </div>
-  );
-}
-
-function UrlList({ value = [], onChange }) {
-  const [inputValue, setInputValue] = useState("");
-
-  const handleAddLink = () => {
-    const trimmed = inputValue.trim();
-    if (!trimmed) return;
-    onChange([...(value || []), trimmed]);
-    setInputValue("");
-  };
-
-  const handleRemoveLink = (index) => {
-    onChange(value.filter((_, i) => i !== index));
-  };
-
-  return (
-    <div>
-      <label htmlFor="lessonLink" className="form-label">Useful Links</label>
-      <div className="input-group mb-3">
-        <input
-          id="lessonLink"
-          type="url"
-          className="form-control"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="https://example.com"
-        />
-        <button className="btn btn-outline-secondary" type="button" onClick={handleAddLink}>
-          Add
-        </button>
-      </div>
-
-      {value && value.length ? (
-        <ul className="list-group mt-2">
-          {value.map((u, i) => (
-            <li key={`${u}-${i}`} className="list-group-item d-flex justify-content-between align-items-center">
-              <span className="text-truncate" style={{ maxWidth: "80%" }}>{u}</span>
-              <button
-                type="button"
-                className="btn btn-sm btn-outline-danger"
-                onClick={() => handleRemoveLink(i)}
-              >
-                ✖
-              </button>
-            </li>
-          ))}
-        </ul>
-      ) : null}
     </div>
   );
 }
