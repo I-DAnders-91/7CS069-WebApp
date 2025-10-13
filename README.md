@@ -111,7 +111,7 @@ The initial idea of a teaching planning app was decided on so it links to my day
 In addition to linking to my own experience, developing an app linked to education would also give me access to plenty of people that could test the app for usability.
 
 #### App name (LearningFoundry)
-To develop the app name, I created a mind map of common words that might be associated with this app **teach, create, plan, learn**. I then came up with synonyms for these with a goal of choosing two that could be used for the app name.
+To develop the app name, I created a mind map of common words that might be associated with this app *teach, create, plan, learn*. I then came up with synonyms for these with a goal of choosing two that could be used for the app name.
 ![app name mind map](docs/img/app_name_mind_map.jpeg)
 
 The name *LearningFoundry* was decided upon as it invokes a powerful learning app with the use of foundry in the name and [logo](#branding-and-design-kit). Limited time was spent on the name choice as it is not the prime aim of this assignment.
@@ -149,7 +149,7 @@ Lessons are created and submitted using the ```<form>``` html tags to create the
 ##### Routing
 To submit the forms, ...
 
-To redirect to other pages, React Router was used. I chose to use their __declarative__ mode matching URLs to components. The React Router (2025) website gave a good guide on how to implement this routing strategy. 
+To redirect to other pages, React Router was used. I chose to use their _declarative_ mode matching URLs to components. The React Router (2025) website gave a good guide on how to implement this routing strategy. 
 
 The navbar was updated with <NavLink> to change the url when clicked. React Router then loaded the appropriate components based on the URL. 
 
@@ -186,12 +186,15 @@ NavLinks were then used to change the URL when clicking on the link:
 
 ### Backend
 #### CRUD Endpoints Identified
-CRUD endpoints were identified before coding them into the app. This was done using a simple, but informative structure to capture all of the details needed (below)
+[CRUD endpoints](/docs/api-endpoints.md) were identified before coding them into the app. This was done using a simple, but informative structure to capture all of the details needed. An example 
+of this can be seen below. Access the full endpoint structures [here](/docs/api-endpoints.md)
 ![CRUD Endpoint Identification structure](docs/img/CRUDendpointIdentification.jpeg)
 
-* CRUD endpoints built
+#### CRUD endpoints built
+__TODO__
+
 * Database migrations
-* Tests
+
 
 ### File handling
 * Laravel storage
@@ -256,10 +259,10 @@ Baseline -> fixes -> improved results
   * [Creating a React.js + Laravel API CRUD: A Simple Guide (Medium.com)](https://medium.com/@laravelprotips/creating-a-react-js-laravel-api-crud-a-simple-guide-02702f93d26f)
     
 ### References
-GeeksforGeeks(2025) __How Do You Write a User Story?__. Available at: https://www.geeksforgeeks.org/software-engineering/how-do-you-write-a-user-story/#1-identify-the-user. Accessed: 28 Sept 2025.
+GeeksforGeeks(2025) _How Do You Write a User Story?_. Available at: https://www.geeksforgeeks.org/software-engineering/how-do-you-write-a-user-story/#1-identify-the-user. Accessed: 28 Sept 2025.
 
-Pitt, C. (2021) __Pro PHP 8 MVC: model view controller architecture-driven application development__. Apress.
+Pitt, C. (2021) _Pro PHP 8 MVC: model view controller architecture-driven application development_. Apress.
 
-React Router (2025) __React Router Home__. Available at: https://reactrouter.com/home. Accessed: 11 Oct 2025.
+React Router (2025) _React Router Home_. Available at: https://reactrouter.com/home. Accessed: 11 Oct 2025.
 
-Sinha, S. (2019) __Beginning Laravel : Build Websites with Laravel 5.8.__ 2nd ed. 2019. Berkeley, CA: Apress. [Online]. Available at: https://learning.oreilly.com/. Accessed: 9 Oct 2025.
+Sinha, S. (2019) _Beginning Laravel : Build Websites with Laravel 5.8._ 2nd ed. 2019. Berkeley, CA: Apress. [Online]. Available at: https://learning.oreilly.com/. Accessed: 9 Oct 2025.
