@@ -22,7 +22,58 @@
 <details>
 <summary>Click to view installation instructions</summary>
 
-Coming soon...
+#### Prerequisites
+- [GitHub Codespaces](https://github.com/features/codespaces) or Docker with dev containers
+- No local PHP/Node setup required; all dependencies are installed in the container
+
+#### Getting Started
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/I-DAnders-91/LearningFoundry
+   cd LearningFoundry
+   ```
+
+2. **Open in Codespaces or VS Code with Dev Containers:**
+   - Codespaces: Click "Code" > "Open with Codespaces" on GitHub.
+   - VS Code: Open folder, then "Reopen in Container" if prompted.
+
+3. **Wait for the container to build and dependencies to install.**
+   - PHP 8.3 and required extensions are installed automatically using .devcontainer.json
+   - Node.js and npm are available in the container.
+
+4. **Install Laravel dependencies:**
+   ```bash
+   cd server/laravel
+   composer install
+   ```
+
+5. **Install React client dependencies:**
+   ```bash
+   cd ../../client
+   npm install
+   ```
+
+6. **Start the Laravel API server:**
+   ```bash
+   cd ../server/laravel
+   php artisan serve
+   ```
+   The API will be available at `http://localhost:8000`.
+
+7. **Start the React client:**
+   ```bash
+   cd ../../client
+   npm start
+   ```
+   The app will be available at `http://localhost:3000`.
+
+#### Viewing the App
+
+- Open [http://localhost:3000](http://localhost:3000) in your browser.
+- If using Codespaces, use the "Ports" tab to access forwarded ports.
+
+---
 
 </details>
 
