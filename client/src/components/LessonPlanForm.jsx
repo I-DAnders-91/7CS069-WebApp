@@ -233,14 +233,14 @@ export default function LessonPlanForm() {
           {err("useful_links.0") && <div className="text-danger small">{err("useful_links.0")}</div>}
         </div>
 
-        <div className="col-md-8">
+        <div className="col-md-10">
           <button type="submit" id="create-btn" className="btn btn-primary app-button" disabled={saving}>
             {saving ? "Saving..." : "Create Lesson"}
           </button>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-2">
           <button type="button" id="reset-btn" className="btn btn-outline-secondary app-button" onClick={resetForm}>
-            Reset
+            <i class="bi bi-x-octagon reset-btn"></i>
           </button>
         </div>
       </form>

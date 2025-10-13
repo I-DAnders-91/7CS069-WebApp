@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreLessonRequest;
 
-
 class LessonController extends Controller
 {
-    // Read all lessons from JSON file
+    protected function jsonPath() {
+        return storage_path('app/lessons/lessons.json');
+    }
+
     protected function readAll() {
-        $jsonPath = storage_path('app/lessons/lessons.json');
+        $jsonPath = $this->jsonPath();
         if (!file_exists($jsonPath)) {
             return [];
         }
@@ -18,71 +20,57 @@ class LessonController extends Controller
         return json_decode($json, true) ?: [];
     }
 
-    // Write all lessons to JSON file
     protected function writeAll($lessons) {
-        $jsonPath = storage_path('app/lessons/lessons.json');
+        $jsonPath = $this->jsonPath();
         file_put_contents($jsonPath, json_encode($lessons, JSON_PRETTY_PRINT));
     }
-    public function index() {
-        $lessons = \App\Models\Lesson::all();
-        return response()->json($lessons);
+
+    public function index()
+    {
+        $lessons = $this->readAll();
+        return response()->json(['data' => $lessons]);
     }
 
     // Store a new lesson
     public function store(StoreLessonRequest $request) {
         $data = $request->validated();
-        // Store the lesson in the database
-        $lesson = \App\Models\Lesson::create($data);
+        $lessons = $this->readAll();
 
-        // Also append lesson data to lessons.json
-        $jsonPath = storage_path('app/lessons/lessons.json');
-        $lessons = [];
-        if (file_exists($jsonPath)) {
-            $json = file_get_contents($jsonPath);
-            $lessons = json_decode($json, true) ?: [];
-        }
-        $lessons[] = $lesson->toArray();
-        file_put_contents($jsonPath, json_encode($lessons, JSON_PRETTY_PRINT));
+        // Generate a new ID
+        $data['id'] = count($lessons) ? max(array_column($lessons, 'id')) + 1 : 1;
 
-        return response()->json($lesson, 201);
+        $lessons[] = $data;
+        $this->writeAll($lessons);
+
+        return response()->json($data, 201);
     }
 
     // Show a specific lesson by ID
     public function show($id) {
-        $lesson = \App\Models\Lesson::find($id);
-        if (!$lesson) {
-            return response()->json(['error' => 'Lesson not found'], 404);
+        $lessons = $this->readAll();
+        foreach ($lessons as $lesson) {
+            if ((string)$lesson['id'] === (string)$id) {
+                return response()->json($lesson);
+            }
         }
-        return response()->json($lesson);
+        return response()->json(['error' => 'Lesson not found'], 404);
     }
 
     // Delete a lesson by ID
     public function destroy($id) {
-        // Delete from database
-        $lesson = \App\Models\Lesson::find($id);
-        if ($lesson) {
-            $lesson->delete();
-        }
-
-        // Delete from JSON file
-        $all = $this->readAll();
+        $lessons = $this->readAll();
         $index = null;
-        foreach ($all as $i => $l) {
-            if ((string)$l['id'] === (string)$id) {
+        foreach ($lessons as $i => $lesson) {
+            if ((string)$lesson['id'] === (string)$id) {
                 $index = $i;
                 break;
             }
         }
         if ($index !== null) {
-            array_splice($all, $index, 1);
-            $this->writeAll($all);
+            array_splice($lessons, $index, 1);
+            $this->writeAll($lessons);
+            return response()->noContent(); // 204 No Content
         }
-
-        // If neither found, return not found
-        if (!$lesson && $index === null) {
-            return response()->json(['message' => 'Lesson not found'], 404);
-        }
-
-        return response()->noContent(); // 204 No Content
+        return response()->json(['message' => 'Lesson not found'], 404);
     }
 }

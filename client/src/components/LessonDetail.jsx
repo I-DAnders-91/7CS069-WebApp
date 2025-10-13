@@ -29,6 +29,21 @@ export default function LessonDetail() {
         return () => { ignore = true;};
     }, [id]);
 
+       const handleDelete = async (id) => {
+        if (!confirm("Are you sure you want to delete this lesson?")) return;
+        try {
+            const res = await fetch(`/api/lessons/${id}`, { method: 'DELETE' });
+            if (res.status === 204) {
+                setLessons((prev) => prev.filter((lesson) => lesson.id !== id));
+            } else {
+                alert("Failed to delete lesson.");
+            }
+        } catch (error) {
+            alert("Error deleting lesson.");
+            console.error(error);
+        }
+    };
+    
     if (loading) return <div className="container py-4"><p>Loading...</p></div>;
     if (error) return <div className="container py-4"><p className="text-danger">{error}</p></div>;
     if (!lesson) return <div className="container py-4"><p>Lesson not found.</p></div>;
@@ -60,13 +75,25 @@ export default function LessonDetail() {
                 {!!(lesson.useful_links && lesson.useful_links.length) && (
                     <>
                     <h2>Useful Links</h2>
-                    <ul>
+                    <ul class="useful-links">
                     {lesson.useful_links.map((u,i) => (
                         <li key={i}><a href={u} target="_blank" rel="noopener noreferrer">{u}</a></li>
                     ))}
                     </ul>
                     </>
                 )}
+
+
+                <div>
+                    {/*TODO: Add edit button*/}
+                    <button
+                        className="btn btn-sm btn-outline-danger"
+                        onClick={() => handleDelete(lesson.id)}
+                    >
+                        <i class="bi bi-trash"></i>
+                        Delete
+                    </button>
+                </div>
             </div>
             <Footer />
         </div>

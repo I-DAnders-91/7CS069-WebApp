@@ -1,9 +1,7 @@
-
 :root {
   --mainOrange: #F26419;
   --mainGrey: #2E2E2E;
   --mainLight: #F4EDE4;
-
   --secondaryAccent: #3A6F78;
   --secondaryDark: #2F3C7E;
 }
@@ -184,12 +182,17 @@ button:hover {
 
 #reset-btn {
   background-color: var(--mainGrey);
-  color: var(--mainLight);
+  color: red !important;
   border: 1px solid red;
 }
 
 #reset-btn:hover {
   background-color: red;
+  color: var(--mainLight) !important;
+}
+
+.useful-links {
+  list-style-type: none;
 }
 
 /* Remove webkit styling (to fix incorrect height for search and url inputs) */

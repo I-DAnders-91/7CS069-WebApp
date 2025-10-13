@@ -65,6 +65,7 @@ export default function MyLessons() {
                         className="btn btn-sm btn-outline-danger"
                         onClick={() => handleDelete(lesson.id)}
                     >
+                        <i class="bi bi-trash"></i>
                         Delete
                     </button>
                 </li>
