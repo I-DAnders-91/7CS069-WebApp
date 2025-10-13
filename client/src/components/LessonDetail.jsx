@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import MyLessons from "./MyLessons";
 
 export default function LessonDetail() {
     const { id } = useParams();
@@ -85,7 +86,9 @@ export default function LessonDetail() {
 
 
                 <div>
-                    {/*TODO: Add edit button*/}
+                    <Link className="btn btn-sm btn-outline-secondary" to={`/lessons/${lesson.id}/edit`}>
+                    <i className="bi bi-pencil-square"></i>Edit
+                    </Link>
                     <button
                         className="btn btn-sm btn-outline-danger"
                         onClick={() => handleDelete(lesson.id)}

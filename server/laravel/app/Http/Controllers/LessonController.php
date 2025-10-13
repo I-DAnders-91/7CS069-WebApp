@@ -27,7 +27,12 @@ class LessonController extends Controller
 
     public function index()
     {
-        $lessons = $this->readAll();
+        $jsonPath = storage_path('app/lessons/lessons.json');
+        if (!file_exists($jsonPath)) {
+            return response()->json(['data' => []]);
+        }
+        $json = file_get_contents($jsonPath);
+        $lessons = json_decode($json, true) ?? [];
         return response()->json(['data' => $lessons]);
     }
 
@@ -72,5 +77,41 @@ class LessonController extends Controller
             return response()->noContent(); // 204 No Content
         }
         return response()->json(['message' => 'Lesson not found'], 404);
+    }
+
+    // Update a lesson by ID
+    public function update(Request $request, $id) {
+        $data = $request->validate([
+            'objective' => 'required|string|max:255',
+            'subject' => 'required|string|max:255',
+            'year_group' => 'required|string|max:255',
+            'date' => 'nullable|string|max:255',
+            'success_criteria' => 'nullable|string|max:255',
+            'activities' => 'nullable|string',
+            'useful_links' => 'nullable|array',
+            'useful_links.*' => 'string|max:255',
+        ]);
+
+        $all = $this->readAll();
+        $index = null;
+        foreach ($all as $i => $lesson) {
+            if ((string)$lesson['id'] === (string)$id) {
+                $index = $i;
+                break;
+            }
+        }
+        if ($index === null) {
+            return response()->json(['message' => 'Lesson not found'], 404);
+        }
+
+        // Keep same id, update timestamp
+        $lesson = array_merge($all[$index], $data, [
+            'updated_at' => now()->toISOString(),
+        ]);
+
+        $all[$index] = $lesson;
+        $this->writeAll($all);
+
+        return response()->json($lesson); // 200 OK
     }
 }

@@ -58,16 +58,31 @@ export default function MyLessons() {
                         <br />
                         <small>
                             Subject: {lesson.subject} | Date: {lesson.date ? new Date(lesson.date).toISOString().slice(0, 10) : ''} | Year Group: {lesson.year_group}
-                            </small>
+                        </small>
+                        <br />
+                        <small>
+                            Created: {lesson.created_at ? new Date(lesson.created_at).toISOString().slice(0, 10) : ''} | Updated: {lesson.updated_at ? new Date(lesson.updated_at).toISOString().slice(0, 10) : ''}
+                        </small>
                     </div>
-                    <Link className="btn btn-sm btn-outline-primary" to={`/lessons/${lesson.id}`}>View</Link>
-                    <button
-                        className="btn btn-sm btn-outline-danger"
-                        onClick={() => handleDelete(lesson.id)}
-                    >
-                        <i class="bi bi-trash"></i>
-                        Delete
-                    </button>
+                    <div className="row mt-2">
+                            <div className="col-3 px-1">
+                                <Link className="btn btn-sm btn-outline-secondary w-100" to={`/lessons/${lesson.id}/edit`}>
+                                    <i className="bi bi-pencil-square"></i> Edit
+                                </Link>
+                        </div>
+                        <div className="col-7 px-1">
+                            <Link className="btn btn-sm btn-outline-primary w-100" to={`/lessons/${lesson.id}`}>View</Link>
+                        </div>
+
+                        <div className="col-2 px-1">
+                            <button
+                                className="btn btn-sm btn-outline-danger w-100"
+                                onClick={() => handleDelete(lesson.id)}
+                            >
+                                <i className="bi bi-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
                 </li>
             ))}
         </ul>
